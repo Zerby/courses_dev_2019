@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>App web</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>Test</h1>
+	<form action="/form" method="post">
+		<label for="firstname">First Name</label>
+		<input type="text" name="firstname" id="firstname">
+
+		<label for="lastname">Last Name</label>
+		<input type="text" name="lastname" id="lastname">
+
+		<label for="age">Age</label>
+		<input type="text" name="age" id="age">
+
+		<input type="submit" value="Valider">
+	</form>
+
+	</br>
+	{% for personne in liste %}
+	<li>{{ personne.prenom }} {{ personne.nom }} | {{ personne.age }} <a href="/personne/{{ personne.id }}">preview</a> 
+		<a href="/delete/{{ personne.id }}">delete</a></li>
+	{% endfor %}
+
+</body>
+</html>
