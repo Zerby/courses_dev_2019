@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery Infinite Scroll</title>
+    </head>
+    <body>
+
+        <div style="margin-top: 20px">
+            <div class="row">
+                <div class=" results"></div>
+            </div>
+        </div>
+
+        <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            //inits côté js
+            var start = 0;
+            var limit = 10;
+            var error = false;
+            
+            //là où on se trouve sur la page
+            $(window).scroll(function () {
+                if ($(window).scrollTop() == $(document).height() - $(window).height())
+                    getData();
+            });
+
+            $(document).ready(function () {
+               getData();
+            });
+            
+            //simple requête ajax
+            function getData() {
+                if (error)
+                    return;
+
+                $.ajax({
+                   url: 'data.php',
+                   method: 'POST',
+                    dataType: 'text',
+                   data: {
+                       getData: 1,
+                       start: start,
+                       limit: limit
+                   },
+                   success: function(response) {
+                        if (response == "error")
+                            error = true;
+                        else {
+                            start += limit;
+                            $(".results").append(response);
+                        }
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
