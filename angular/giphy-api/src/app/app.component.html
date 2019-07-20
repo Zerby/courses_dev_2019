@@ -1,0 +1,28 @@
+<router-outlet></router-outlet>
+
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+  <input type="text" formControlName="search" [ngClass]="{'is-invalid': formGroup.controls['search'].errors && formGroup.controls['search'].touched}">
+
+  <ng-container *ngIf="formGroup.controls['search'].errors && formGroup.controls['search'].touched">
+
+    <span *ngIf="formGroup.controls['search'].errors.required">
+      Champs requis !
+    </span>
+    <span *ngIf="formGroup.controls['search'].errors.minlength">
+      Vous devez indiquer {{ formGroup.controls['search'].errors.minlength.requiredLength }} caractères minimum.
+    </span>
+
+  </ng-container>
+  <br />
+
+  <input type="submit" value="Valider" [disabled]="formGroup.invalid"><br />
+
+  <ng-container *ngIf="tabs">
+    <ng-container *ngFor="let tab of tabs">
+      <img src="{{ tab.images.original.url }}" alt="">
+    </ng-container>
+  </ng-container>
+
+</form>
+

@@ -1,0 +1,33 @@
+<router-outlet></router-outlet>
+
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+  <input type="text" formControlName="firstname" [ngClass]="{'is-invalid': formGroup.controls['firstname'].errors && formGroup.controls['firstname'].touched}">
+
+  <ng-container *ngIf="formGroup.controls['firstname'].errors && formGroup.controls['firstname'].touched">
+
+    <span *ngIf="formGroup.controls['firstname'].errors.required">
+      Champs requis !
+    </span>
+    <span *ngIf="formGroup.controls['firstname'].errors.minlength">
+      Vous devez indiquer {{ formGroup.controls['firstname'].errors.minlength.requiredLength }} caractères minimum.
+    </span>
+
+  </ng-container>
+  <br />
+
+
+  <input type="number" formControlName="nbPerson" [ngClass]="{'is-invalid': formGroup.controls['nbPerson'].errors && formGroup.controls['nbPerson'].touched}">
+
+  <ng-container *ngIf="formGroup.controls['nbPerson'].errors && formGroup.controls['nbPerson'].touched">
+
+    <span *ngIf="formGroup.controls['nbPerson'].errors.min">
+      Vous devez indiquer {{ formGroup.controls['nbPerson'].errors.min.min }} personne(s)
+    </span>
+
+  </ng-container>
+  <br />
+
+  <input type="submit" value="Valider" [disabled]="formGroup.invalid"><br />
+
+</form>

@@ -1,0 +1,10 @@
+<ng-container *ngFor="let article of articles">
+  <div class="card">
+    <div class="card-body">
+      {{ article.title }}<br />
+      {{ article.date }}<br />
+      <a routerLink="/article/{{article.id}}">Article {{article.id}}</a>
+      <span *ngIf="article.new === true" class="badge badge-primary">Nouveau !</span>
+    </div>
+  </div>
+</ng-container>

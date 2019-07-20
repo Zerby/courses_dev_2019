@@ -1,0 +1,119 @@
+<h2>Ajouter un avion</h2>
+
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+  <div class="form-group">
+
+  <label for="type">Type</label>
+  <input type="text" formControlName="type" class="form-control" [ngClass]="{'is-invalid': formGroup.controls['type'].errors && formGroup.controls['type'].touched}">
+
+  <ng-container *ngIf="formGroup.controls['type'].errors && formGroup.controls['type'].touched">
+
+    <span *ngIf="formGroup.controls['type'].errors.required">
+      Champs requis !
+    </span>
+    <span *ngIf="formGroup.controls['type'].errors.minlength">
+      Vous devez indiquer {{ formGroup.controls['type'].errors.minlength.requiredLength }} caractères minimum.
+    </span>
+    <span *ngIf="formGroup.controls['type'].errors.maxlength">
+      Vous devez indiquer {{ formGroup.controls['type'].errors.maxlength.requiredLength }} caractères maximum.
+    </span>
+
+  </ng-container>
+
+  </div>
+
+  <div class="form-group">
+
+  <label for="">FlightNumber</label>
+  <input type="text" formControlName="flightNumber" class="form-control" [ngClass]="{'is-invalid': formGroup.controls['flightNumber'].errors && formGroup.controls['flightNumber'].touched}">
+
+  <ng-container *ngIf="formGroup.controls['flightNumber'].errors && formGroup.controls['flightNumber'].touched">
+
+    <span *ngIf="formGroup.controls['flightNumber'].errors.required">
+      Champs requis !
+    </span>
+    <span *ngIf="formGroup.controls['flightNumber'].errors.minlength">
+      Vous devez indiquer {{ formGroup.controls['flightNumber'].errors.minlength.requiredLength }} caractères minimum.
+    </span>
+    <span *ngIf="formGroup.controls['flightNumber'].errors.maxlength">
+      Vous devez indiquer {{ formGroup.controls['flightNumber'].errors.maxlength.requiredLength }} caractères maximum.
+    </span>
+
+  </ng-container>
+
+  </div>
+
+  <div class="form-group">
+
+  <label for="">From</label>
+  <input type="text" formControlName="from" class="form-control" [ngClass]="{'is-invalid': formGroup.controls['from'].errors && formGroup.controls['from'].touched}">
+
+  <ng-container *ngIf="formGroup.controls['from'].errors && formGroup.controls['from'].touched">
+
+    <span *ngIf="formGroup.controls['from'].errors.required">
+      Champs requis !
+    </span>
+    <span *ngIf="formGroup.controls['from'].errors.minlength">
+      Vous devez indiquer {{ formGroup.controls['from'].errors.minlength.requiredLength }} caractères minimum.
+    </span>
+    <span *ngIf="formGroup.controls['from'].errors.maxlength">
+      Vous devez indiquer {{ formGroup.controls['from'].errors.maxlength.requiredLength }} caractères maximum.
+    </span>
+
+  </ng-container>
+  </div>
+
+  <div class="form-group">
+
+  <label for="">HourStart</label>
+  <input type="time" step="3" formControlName="hourStart" class="form-control" [ngClass]="{'is-invalid': formGroup.controls['hourStart'].errors && formGroup.controls['hourStart'].touched}">
+
+  <ng-container *ngIf="formGroup.controls['hourStart'].errors && formGroup.controls['hourStart'].touched">
+
+    <span *ngIf="formGroup.controls['hourStart'].errors.required">
+      Champs requis !
+    </span>
+    <span *ngIf="formGroup.controls['hourStart'].errors.minlength">
+      Vous devez indiquer {{ formGroup.controls['hourStart'].errors.minlength.requiredLength }} caractères minimum.
+    </span>
+    <span *ngIf="formGroup.controls['hourStart'].errors.maxlength">
+      Vous devez indiquer {{ formGroup.controls['hourStart'].errors.maxlength.requiredLength }} caractères maximum.
+    </span>
+
+  </ng-container>
+  </div>
+
+  <div class="form-group">
+
+  <label for="">PassengerCount</label>
+  <input type="number" formControlName="passengerCount" class="form-control" [ngClass]="{'is-invalid': formGroup.controls['passengerCount'].errors && formGroup.controls['passengerCount'].touched}">
+
+  <ng-container *ngIf="formGroup.controls['passengerCount'].errors && formGroup.controls['passengerCount'].touched">
+
+    <span *ngIf="formGroup.controls['passengerCount'].errors.required">
+      Champs requis !
+    </span>
+
+  </ng-container>
+  </div>
+
+  <div class="form-group">
+
+  <label for="">SuitcaseCount</label>
+  <input type="number" formControlName="suitcaseCount" class="form-control" [ngClass]="{'is-invalid': formGroup.controls['suitcaseCount'].errors && formGroup.controls['suitcaseCount'].touched}">
+
+  <ng-container *ngIf="formGroup.controls['suitcaseCount'].errors && formGroup.controls['suitcaseCount'].touched">
+
+    <span *ngIf="formGroup.controls['suitcaseCount'].errors.required">
+      Champs requis !
+    </span>
+
+  </ng-container>
+
+  </div>
+
+  <input type="submit" value="Valider" class="btn btn-primary" [disabled]="formGroup.invalid"><br />
+
+</form>
+

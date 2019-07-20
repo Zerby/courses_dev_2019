@@ -1,0 +1,15 @@
+<div class="container">
+
+  <ng-container *ngIf="tabDetail">
+
+    <h1>Détail de l'avion {{ tabDetail.id }} </h1>
+    <p>Type : {{ tabDetail.type }}</p>
+    <p>Numéro de vol : {{ tabDetail.flightNumber }}</p>
+    <p>Porvenance : {{ tabDetail.from }}</p>
+    <p>Huere d'arrivée : {{ tabDetail.hourStart }}</p>
+    <p>Nombre de passagers : {{ tabDetail.passengerCount }}</p>
+    <p>Nombre de bagages en soute : {{ tabDetail.suitcaseCount }}</p>
+
+  </ng-container>
+
+</div>

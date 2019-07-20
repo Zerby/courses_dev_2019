@@ -1,0 +1,32 @@
+<ng-container *ngIf="article">
+  <h1>L'article {{ article.id }}</h1>
+
+  <h2>{{ article.title}}</h2>
+  <p>{{article.body}}</p>
+
+  <button type="button" routerLink="" class="btn btn-info">Retour liste</button>
+  <br>
+  <br>
+</ng-container>
+
+<h2>Les Commentaires de l'article</h2>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Mail</th>
+    <th scope="col">Commentaire</th>
+  </tr>
+  </thead>
+
+  <tbody *ngFor="let comment of comments">
+  <tr>
+    <th scope="row">{{comment.postId}}</th>
+    <td>{{comment.name}}</td>
+    <td>{{comment.email}}</td>
+    <td>{{comment.body}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,36 @@
+ <!--<p>Ajouter un vol</p>
+  <a routerLink="/ajout" class="btn btn-primary">Ajout d'un vol</a>-->
+
+  <h1 class="mb-5">Bienvenue sur le Tarmac !</h1>
+
+  <ng-container *ngIf="tabs">
+
+
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Numéro de vol</th>
+        <th scope="col">Provenance</th>
+        <th scope="col">Heure d'arrivée</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <ng-container *ngFor="let tab of tabs">
+
+        <tr>
+          <th scope="row">{{ tab.type }}</th>
+          <td>{{ tab.flightNumber }}</td>
+          <td>{{ tab.from }}</td>
+          <td>{{ tab.hourStart }}</td>
+          <a routerLink="/detail/{{ tab.id }}" class="btn btn-primary btn-sm mt-2">Détail du vol</a>
+        </tr>
+
+      </ng-container>
+
+      </tbody>
+    </table>
+
+  </ng-container>

@@ -1,0 +1,12 @@
+<ng-container *ngIf="title === 'lalala'">
+  test
+  <ng-container *ngFor="let row of myArray; let i = index">
+    {{ row.title }} - {{ row.nombre }} <br>
+  </ng-container>
+</ng-container>
+
+{{ myDate | date : 'short' : '+0200' }}
+{{ myCurrency | currency : 'EUR' : 'symbol' }}
+
+<app-test [list]="myArray"></app-test>
+<router-outlet></router-outlet>

@@ -1,0 +1,31 @@
+ <div>
+    <div class="container">
+      <div class="col-md-6 offset-md-3">
+        <h2 *ngIf="!article">Créer un article</h2>
+        <h2 *ngIf="article">Modifier un article</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+          <div class="form-group">
+            <label>Titre</label>
+            <input type="text" class="form-control" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
+            <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+              <div *ngIf="f.title.errors.required">Titre de l'article est nécessaire</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Corps de l'article</label>
+            <textarea formControlName="body" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.body.errors }"></textarea>
+            <div *ngIf="submitted && f.body.errors" class="invalid-feedback">
+              <div *ngIf="f.body.errors.required">Corps de l'article est nécessaire</div>
+            </div>
+          </div>
+
+          <div>
+            <button *ngIf="article" class="btn btn-primary">Modifier</button>
+            <button *ngIf="!article" class="btn btn-primary">Créer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
